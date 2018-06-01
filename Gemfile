@@ -11,6 +11,9 @@ gem "rails", "~> 5.2.0"
 
 gem "bootsnap", ">= 1.1.0", require: false
 
+gem "multi_json"
+gem "roar"
+
 group :development, :test do
   gem "pry-byebug"
 end
@@ -21,5 +24,6 @@ group :development do
 end
 
 group :test do
+  gem "factory_bot_rails"
   gem "rspec-rails"
 end
