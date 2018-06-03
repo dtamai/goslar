@@ -1,0 +1,118 @@
+{
+	"info": {
+		"_postman_id": "9bbf4f38-bdff-48b6-831b-c9a7a01b8d65",
+		"name": "Payments",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Payment (boleto)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "<customer_id>",
+						"description": "ID de cliente"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"buyer\": {\n\t\t\"name\": \"Name\",\n\t\t\"email\": \"name@example.com\",\n\t\t\"cpf\": \"12345678900\"\n\t},\n\t\"payment\": {\n\t\t\"amount\": \"1.23\",\n\t\t\"type\": \"boleto\"\n\t}\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/payments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"payments"
+					]
+				},
+				"description": "Cria um Payment com pagamento via boleto"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Payment (cartão de crédito)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "<customer_id>",
+						"description": "ID de cliente"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"buyer\": {\n\t\t\"name\": \"Name\",\n\t\t\"email\": \"name@example.com\",\n\t\t\"cpf\": \"12345678900\"\n\t},\n\t\"payment\": {\n\t\t\"amount\": \"1.23\",\n\t\t\"type\": \"card\",\n\t\t\"card\": {\n\t\t\t\"number\": \"123456789012\",\n\t\t\t\"cvv\": \"123\",\n\t\t\t\"expiration_date\": \"09/21\",\n\t\t\t\"holder_name\": \"NAME\"\n\t\t}\n\t}\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/payments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"payments"
+					]
+				},
+				"description": "Cria um Payment com pagamento via cartão de crédito"
+			},
+			"response": []
+		},
+		{
+			"name": "Show Payment",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "<customer_id>",
+						"description": "ID de cliente"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3000/payments/:payment_id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"payments",
+						":payment_id"
+					],
+					"variable": [
+						{
+							"key": "payment_id",
+							"value": "<payment_id>",
+							"description": "ID do pagamento"
+						}
+					]
+				},
+				"description": "Exibe detalhes de um pagamento"
+			},
+			"response": []
+		}
+	]
+}

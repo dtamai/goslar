@@ -13,6 +13,7 @@ gem "bootsnap", ">= 1.1.0", require: false
 
 gem "multi_json"
 gem "roar"
+gem "tzinfo-data"
 
 group :development, :test do
   gem "pry-byebug"

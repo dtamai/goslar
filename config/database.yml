@@ -2,25 +2,19 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: <%= ENV.fetch("GOSLAR_DATABASE_HOST") { "localhost" } %>
+  password: <%= ENV.fetch("GOSLAR_DATABASE_PASSWORD") %>
+  port: 5432
+  username: goslar
 
 development:
   <<: *default
   database: goslar_development
-  host: localhost
-  port: 5432
-  username: goslar
-  password: <%= ENV['GOSLAR_DATABASE_PASSWORD'] %>
 
 test:
   <<: *default
   database: goslar_test
-  host: localhost
-  username: goslar
-  password: <%= ENV['GOSLAR_DATABASE_PASSWORD'] %>
-  port: 5432
 
 production:
   <<: *default
   database: goslar_production
-  username: goslar
-  password: <%= ENV['GOSLAR_DATABASE_PASSWORD'] %>

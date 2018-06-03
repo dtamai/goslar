@@ -1,6 +1,15 @@
 version: "3"
 
 services:
+  app:
+    build: ./
+    command: rails s
+    ports:
+      - "3000:3000"
+    environment:
+      GOSLAR_DATABASE_PASSWORD: s3creT@
+      GOSLAR_DATABASE_HOST: db
+
   db:
     image: postgres:10.4-alpine
     ports:
