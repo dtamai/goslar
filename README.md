@@ -1,5 +1,6 @@
 # Goslar
-Homework
+
+[Goslar](https://en.wikipedia.org/wiki/Goslar) é uma cidade alemã que, durante a idade média, foi uma importante cidade do império romano e centro de mineração.
 
 ## Usando a API
 
